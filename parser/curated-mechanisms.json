@@ -1,0 +1,19 @@
+{
+  "1280": {
+    "METHICILLIN": {
+      "mecA": [],
+      "mecC": [],
+      "mecC2": []
+    },
+    "VANCOMYCIN": {
+      "vanA": [
+        "vanH-A",
+        "vanR-A",
+        "vanS-A",
+        "vanX-A",
+        "vanY-A",
+        "vanZ-A"
+      ]
+    }
+  }
+}
