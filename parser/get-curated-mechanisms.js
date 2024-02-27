@@ -1,8 +1,21 @@
-const curatedMechanisms = require("./curated-mechanisms.json");
+const curatedMechanisms = require("./curated-mechanisms.js");
 
 function getCuratedMechanisms(organism) {
-  if (organism in curatedMechanisms) {
-    return curatedMechanisms[organism];
+  const rules = [];
+  for (const [ taxId, subclass, gene, mechanisms ] of curatedMechanisms) {
+    if (taxId === organism) {
+      rules.push({ subclass, gene, mechanisms });
+      // rules[subclass] = rules[subclass] || {};
+      // rules[subclass][gene] = [];
+      // for (const dep of deps) {
+      //   if (dep !== gene) {
+      //     rules[subclass][gene].push(dep);
+      //   }
+      // }
+    }
+  }
+  if (rules.length > 0) {
+    return rules;
   }
   else {
     throw new Error(`Invalid organism code ${organism}`);

@@ -9,26 +9,23 @@ function main(
 ) {
   const amrElements = filterAmrElements(list);
   const groups = groupBySubclass(amrElements);
-  const geneFlagsBySubclass = extractGenesFromGroups(groups);
+  const hitsBySubclass = extractGenesFromGroups(groups);
 
-  const curatedMechanisms = getCuratedMechanisms(organism);
+  const rules = getCuratedMechanisms(organism);
 
   const output = {};
-  for (const [subclass, mechanismMap] of Object.entries(curatedMechanisms)) {
-    const foundGenes = geneFlagsBySubclass[subclass];
-    if (foundGenes) {
-      for (const [actualMechanism, dependentMechanisms] of Object.entries(mechanismMap)) {
-        if (foundGenes[actualMechanism]) {
-          output[subclass] = [];
-          output[subclass].push(actualMechanism);
-          for (const dependentMechanism of dependentMechanisms) {
-            if (foundGenes[actualMechanism]) {
-              output[subclass].push(dependentMechanism);
-            }
-          }
-        }
+  for (const { subclass, gene, mechanisms } of rules) {
+    const foundHits = hitsBySubclass[subclass];
+    if (foundHits) {
+      if (mechanisms.every((x) => foundHits[x])) {
+        output[subclass] = output[subclass] || new Set();
+        output[subclass].add(gene);
       }
     }
+  }
+
+  for (const [subclass, set] of Object.entries(output)) {
+    output[subclass] = Array.from(set).sort();
   }
   
   return output;

@@ -1,4 +1,4 @@
-[
+module.exports = [
   // 1280
   [ "1280", "METHICILLIN", "mecA", [ "mecA" ] ],
   [ "1280", "METHICILLIN", "mecC", [ "mecC" ] ],
@@ -77,4 +77,4 @@
 
   // 287
 
-]
+];
