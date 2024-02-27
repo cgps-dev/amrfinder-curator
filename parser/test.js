@@ -86,6 +86,6 @@ test("SRR18507761 test", async (t) => {
   const output = parser("470", input);
   assert.deepEqual(
     output,
-    {}
+    {},
   );
 });
