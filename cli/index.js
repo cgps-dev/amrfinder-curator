@@ -4,7 +4,7 @@ const readJsonFromStdin = require("./read-json-from-stdin.js");
 
 async function main() {
   const input = await readJsonFromStdin();
-  const output = parser(input);
+  const output = parser(process.argv[2], input);
   console.log(JSON.stringify(output));
 }
 
