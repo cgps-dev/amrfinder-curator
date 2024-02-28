@@ -89,3 +89,58 @@ test("SRR18507761 test", async (t) => {
     {},
   );
 });
+
+test("ERR3184666 test", async (t) => {
+  const input = require("../tests/287/ERR3184666.json");
+  const output = parser("287", input);
+  assert.deepEqual(
+    output,
+    {
+      "CARBAPENEM": [ "blaVIM", "blaVIM-2", "oprD_Q142STOP" ].sort(),
+    }
+  );
+});
+
+test("ERR3418584 test", async (t) => {
+  const input = require("../tests/287/ERR3418584.json");
+  const output = parser("287", input);
+  assert.deepEqual(
+    output,
+    {
+      "CARBAPENEM": [ "oprD_Q142STOP" ],
+    }
+  );
+});
+
+test("ERR4368920 test", async (t) => {
+  const input = require("../tests/287/ERR4368920.json");
+  const output = parser("287", input);
+  assert.deepEqual(
+    output,
+    {
+      "CARBAPENEM": [ "blaVIM-2" ],
+    }
+  );
+});
+
+test("SRR14790815 test", async (t) => {
+  const input = require("../tests/287/SRR14790815.json");
+  const output = parser("287", input);
+  assert.deepEqual(
+    output,
+    {
+      "CARBAPENEM": [ "blaKPC-2" ],
+    }
+  );
+});
+
+test("DRR021825 test", async (t) => {
+  const input = require("../tests/287/DRR021825.json");
+  const output = parser("287", input);
+  assert.deepEqual(
+    output,
+    {
+      "CARBAPENEM": [ "blaIMP-7" ],
+    }
+  );
+});

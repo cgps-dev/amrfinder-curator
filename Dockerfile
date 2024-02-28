@@ -6,4 +6,8 @@ COPY ./ /src/
 
 RUN npm install
 
-ENTRYPOINT [ "node", "/src/cli/index.js"]
+ARG TAXID
+
+ENV taxid=$TAXID
+
+ENTRYPOINT [ "node", "/src/cli/index.js" ]

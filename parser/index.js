@@ -14,12 +14,16 @@ function main(
   const rules = getCuratedMechanisms(organism);
 
   const output = {};
-  for (const { subclass, gene, mechanisms } of rules) {
+  for (const rule of rules) {
+    const { subclass, gene, mechanisms } = rule;
     const foundHits = hitsBySubclass[subclass];
     if (foundHits) {
       if (mechanisms.every((x) => foundHits[x])) {
         output[subclass] = output[subclass] || new Set();
-        output[subclass].add(gene);
+        for (const item of gene.split(";")) {
+          output[subclass].add(item);
+        }
+        // console.error("adding", rules.indexOf(rule), subclass, gene, mechanisms)
       }
     }
   }
