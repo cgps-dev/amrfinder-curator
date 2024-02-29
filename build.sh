@@ -7,5 +7,5 @@ do
   docker build . \
     --build-arg TAXID=${TAXID} \
     --tag public.ecr.aws/e2u6m3q5/dev-tools:amrfinder-curator-${TAXID}
-  # docker push "$_"
+  docker push "$_"
 done
