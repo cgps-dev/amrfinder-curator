@@ -2,7 +2,7 @@
 
 set -e
 
-for TAXID in 1280 470 287
+for TAXID in 1280 470 287 485
 do
   docker build . \
     --build-arg TAXID=${TAXID} \
