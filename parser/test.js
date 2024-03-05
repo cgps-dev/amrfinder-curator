@@ -3,7 +3,7 @@ const assert = require("node:assert");
 
 const parser = require("./index.js");
 
-test("ERR4626366 test", async (t) => {
+test("ERR4626366 test", async () => {
   const input = require("../tests/1280/ERR4626366.json");
   const output = parser("1280", input);
   assert.deepEqual(
@@ -14,7 +14,7 @@ test("ERR4626366 test", async (t) => {
   );
 });
 
-test("SRR1955864 test", async (t) => {
+test("SRR1955864 test", async () => {
   const input = require("../tests/1280/SRR1955864.json");
   const output = parser("1280", input);
   assert.deepEqual(
@@ -26,7 +26,7 @@ test("SRR1955864 test", async (t) => {
   );
 });
 
-test("DRR039865 test", async (t) => {
+test("DRR039865 test", async () => {
   const input = require("../tests/470/DRR039865.json");
   const output = parser("470", input);
   assert.deepEqual(
@@ -37,7 +37,7 @@ test("DRR039865 test", async (t) => {
   );
 });
 
-test("ERR6132418 test", async (t) => {
+test("ERR6132418 test", async () => {
   const input = require("../tests/470/ERR6132418.json");
   const output = parser("470", input);
   assert.deepEqual(
@@ -48,7 +48,7 @@ test("ERR6132418 test", async (t) => {
   );
 });
 
-test("SRR15948204 test", async (t) => {
+test("SRR15948204 test", async () => {
   const input = require("../tests/470/SRR15948204.json");
   const output = parser("470", input);
   assert.deepEqual(
@@ -59,7 +59,7 @@ test("SRR15948204 test", async (t) => {
   );
 });
 
-test("SRR16520624 test", async (t) => {
+test("SRR16520624 test", async () => {
   const input = require("../tests/470/SRR16520624.json");
   const output = parser("470", input);
   assert.deepEqual(
@@ -70,7 +70,7 @@ test("SRR16520624 test", async (t) => {
   );
 });
 
-test("SRR17311613 test", async (t) => {
+test("SRR17311613 test", async () => {
   const input = require("../tests/470/SRR17311613.json");
   const output = parser("470", input);
   assert.deepEqual(
@@ -81,7 +81,7 @@ test("SRR17311613 test", async (t) => {
   );
 });
 
-test("SRR18507761 test", async (t) => {
+test("SRR18507761 test", async () => {
   const input = require("../tests/470/SRR18507761.json");
   const output = parser("470", input);
   assert.deepEqual(
@@ -90,7 +90,7 @@ test("SRR18507761 test", async (t) => {
   );
 });
 
-test("ERR3184666 test", async (t) => {
+test("ERR3184666 test", async () => {
   const input = require("../tests/287/ERR3184666.json");
   const output = parser("287", input);
   assert.deepEqual(
@@ -101,7 +101,7 @@ test("ERR3184666 test", async (t) => {
   );
 });
 
-test("ERR3418584 test", async (t) => {
+test("ERR3418584 test", async () => {
   const input = require("../tests/287/ERR3418584.json");
   const output = parser("287", input);
   assert.deepEqual(
@@ -112,7 +112,7 @@ test("ERR3418584 test", async (t) => {
   );
 });
 
-test("ERR4368920 test", async (t) => {
+test("ERR4368920 test", async () => {
   const input = require("../tests/287/ERR4368920.json");
   const output = parser("287", input);
   assert.deepEqual(
@@ -123,7 +123,7 @@ test("ERR4368920 test", async (t) => {
   );
 });
 
-test("SRR14790815 test", async (t) => {
+test("SRR14790815 test", async () => {
   const input = require("../tests/287/SRR14790815.json");
   const output = parser("287", input);
   assert.deepEqual(
@@ -134,13 +134,25 @@ test("SRR14790815 test", async (t) => {
   );
 });
 
-test("DRR021825 test", async (t) => {
+test("DRR021825 test", async () => {
   const input = require("../tests/287/DRR021825.json");
   const output = parser("287", input);
   assert.deepEqual(
     output,
     {
       "CARBAPENEM": [ "blaIMP-7" ],
+    }
+  );
+});
+
+test("ERR4160191 test", async () => {
+  const input = require("../tests/485/ERR4160191.json");
+  const output = parser("485", input);
+  assert.deepEqual(
+    output,
+    {
+      "QUINOLONE": [ "gyrA_D95G", "gyrA_S91F", "parC_S87R" ].sort(),
+      "CEPHALOSPORIN": [ "penA_A510V", "penA_F504L", "penA_G545S", "penA_I312M", "penA_N512Y", "penA_V316T" ].sort(),
     }
   );
 });

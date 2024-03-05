@@ -2,9 +2,15 @@ const curatedMechanisms = require("../amrfinder-review/curated_mechanisms.json")
 
 function getCuratedMechanisms(organism) {
   const rules = [];
-  for (const [ taxId, subclass, gene, mechanisms ] of curatedMechanisms) {
+  for (const [ taxId, subclassOrAliases, gene, mechanisms ] of curatedMechanisms) {
     if (taxId === organism) {
-      rules.push({ subclass, gene, mechanisms });
+      if (Array.isArray(subclassOrAliases)) {
+        const [ subclass, ...aliases ] = subclassOrAliases;
+        rules.push({ subclass, aliases, gene, mechanisms });
+      }
+      else {
+        rules.push({ subclass: subclassOrAliases, gene, mechanisms });
+      }
       // rules[subclass] = rules[subclass] || {};
       // rules[subclass][gene] = [];
       // for (const dep of deps) {
