@@ -1,7 +1,5 @@
 const filterAmrElements = require("./filter-amr-elements.js");
-const groupBySubclass = require("./group-by-subclass.js");
 const getCuratedMechanisms = require("./get-curated-mechanisms.js");
-const extractGenesFromGroups = require("./extract-genes-from-groups.js");
 
 function createAliasMap(
   rules,
@@ -43,9 +41,6 @@ function main(
   const rules = getCuratedMechanisms(organism);
 
   const aliasMap = createAliasMap(rules);
-
-  // const groups = groupBySubclass(amrElements);
-  // const hitsBySubclass = extractGenesFromGroups(groups);
 
   const hitsBySubclass = extractHits(
     amrElements,
