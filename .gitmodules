@@ -1,0 +1,3 @@
+[submodule "amrfinder-review"]
+	path = amrfinder-review
+	url = https://github.com/cgps-discovery/amrfinder-review
