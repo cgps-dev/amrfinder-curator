@@ -2,9 +2,9 @@ FROM node:20-alpine
 
 WORKDIR /src/
 
-COPY ./ /src/
-
-RUN npm install
+COPY ./parser/ /src/parser/
+COPY ./cli/ /src/cli/
+COPY ./amrfinder-review/curated_mechanisms.json /src/amrfinder-review/curated_mechanisms.json
 
 ARG TAXID
 
