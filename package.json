@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "copy": "cp amrfinder-review/curated_mechanisms.json curated-mechanisms.json"
   },
   "author": "",
   "license": "ISC"

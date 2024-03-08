@@ -1,4 +1,4 @@
-const curatedMechanisms = require("../amrfinder-review/curated_mechanisms.json");
+const curatedMechanisms = require("../curated-mechanisms.json");
 
 function getCuratedMechanisms(organism) {
   const rules = [];
